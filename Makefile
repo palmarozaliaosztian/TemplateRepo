@@ -1,8 +1,11 @@
-a.out:
-	gcc hello.c
+all: clean test
+
+appTests: hello.c
+	gcc hello.c -o appTests
+
+test: appTests
+	# executes all tests
+	./appTests
 
 clean:
-	rm hello
-
-test: a.out
-	bash test.sh
+	rm -f appTests
